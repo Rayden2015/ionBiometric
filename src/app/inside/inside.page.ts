@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AccessService } from '../access.service';
 
 @Component({
   selector: 'app-inside',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InsidePage implements OnInit {
 
-  constructor() { }
+  constructor(private accessService: AccessService) { }
+
+  logoutTimer = this.accessService.logoutTimer.asObservable();
 
   ngOnInit() {
+  }
+
+  ionViewWillEnter(){
+    this.accessService.resetLogoutTimer();
   }
 
 }
