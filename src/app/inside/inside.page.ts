@@ -8,7 +8,7 @@ import { AccessService } from '../access.service';
 })
 export class InsidePage implements OnInit {
 
-  constructor(private accessService: AccessService) { }
+  constructor(public accessService: AccessService) { }
 
   logoutTimer = this.accessService.logoutTimer.asObservable();
 
